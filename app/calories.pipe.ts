@@ -9,7 +9,7 @@ import { Meal } from './meal.model';
 export class filterCaloriesPipe implements PipeTransform {
   transform(input: Meal[], desiredCalories){
     var output: Meal[] = [];
-    if(desiredCalories === "Under 500 calories") {
+    if(desiredCalories === "under500") {
       for(var i = 0; i < input.length; i++) {
         if (input[i].calories < 500) {
           output.push(input[i]);
