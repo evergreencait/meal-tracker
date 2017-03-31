@@ -4,6 +4,7 @@ import { Meal } from './meal.model';
 @Component({
   selector: 'meal-list',
   template: `
+  <label>Filter by Calories</label>
   <select (change)="onChange($event.target.value)">
     <option value="allMeals" selected="selected">All Meals</option>
     <option value="under500">Under 500 Calories</option>
@@ -11,7 +12,7 @@ import { Meal } from './meal.model';
   </select>
   <hr>
   <ul>
-    <li *ngFor="let currentMeal of childMealList | filterCalories:filterByCalories">{{currentMeal.name}} <button (click)="editButtonHasBeenClicked(currentMeal)">Edit Meal</button></li>
+    <li *ngFor="let currentMeal of childMealList | filterCalories:filterByCalories">{{currentMeal.name}} <button class="btn-lg" (click)="editButtonHasBeenClicked(currentMeal)">Edit Meal</button></li>
   </ul>
   `
 })

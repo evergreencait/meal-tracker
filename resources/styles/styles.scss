@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css?family=Cedarville+Cursive|Open+Sans+Condensed:300');
+
+
+.title {
+  font-family: 'Cedarville Cursive', cursive;
+  font-size: 100px;
+  margin-left: 20%;
+  margin-bottom: 100px;
+  text-shadow: 4px 4px white;
+}
+body {
+  font-family: 'Open Sans Condensed', sans-serif;
+  background-color: #deeff5;
+}
+
+.header {
+  height: 200px;
+  background-image: url("https://cdn.shutterstock.com/shutterstock/videos/18688493/thumb/1.jpg");
+  height:160;
+  margin-bottom: 50px;
+  background-size: cover;
+  border-bottom: 8px solid white;
+}
+
+.btn-lg {
+  background-color: white;
+  float: right;
+}
+
+.newMeal {
+  float: right;
+}
+
+.jumbotron {
+  height: 480px;
+  margin-top: 50px;
+  background-image: url("http://fruitvegies.com.au/wp-content/uploads/2013/04/fruitvegwide2000px.jpg");
+  background-repeat: no-repeat;
+}
+
+ul {
+  width: 100%;
+  display: flex;
+  list-style: none;
+  flex-wrap: wrap;
+}
+
+  li {
+    width: 32%;
+    border: 2px solid white;
+    border-radius: 5%;
+    margin: 50px 5px 50px 5px;
+    padding: 2%;
+    box-shadow: 10px 10px 5px #888888;
+    background-color: rgba(52, 166, 47, 0.4);
+    font-size: 30px;
+    }
