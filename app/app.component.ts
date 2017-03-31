@@ -7,10 +7,10 @@ import { Component } from '@angular/core';
   <h1>Meal Tracker for {{month}}/{{day}}/{{year}}</h1>
   <h3>{{currentFocus}}</h3>
   <ul>
-    <li *ngFor="let currentMeal of meals">{{currentMeal.name}} <button (click)="editMeal()">Edit Meal</button></li>
+    <li *ngFor="let currentMeal of meals">{{currentMeal.name}} <button (click)="editMeal(currentMeal)">Edit Meal</button></li>
   </ul>
   <hr>
-  <div>
+  <div *ngIf="selectedMeal">
      <h3>{{selectedMeal.name}}</h3>
     <h3>Edit Meal</h3>
     <label>Enter meal name:</label>
@@ -21,6 +21,7 @@ import { Component } from '@angular/core';
      <br>
      <label>Enter meal calories:</label>
      <input [(ngModel)]="selectedMeal.calories">
+     <button (click)="finishedEditing()">Done</button>
     </div>
   </div>
   `
@@ -38,11 +39,15 @@ export class AppComponent {
     new Meal("Soup", "ate two bowls", 600)
   ];
 
-  selectedMeal: Meal = this.meals[0];
+  selectedMeal = null;
 
-  editMeal() {
-    alert("You just requested to edit a meal");
+  editMeal(clickedMeal) {
+    this.selectedMeal = clickedMeal;
   }
+
+  finishedEditing() {
+   this.selectedMeal = null;
+ }
 }
 
 export class Meal {
