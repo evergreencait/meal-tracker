@@ -9,6 +9,7 @@ import { Meal } from './meal.model';
     <option value="under500">Under 500 Calories</option>
     <option value="over500">Over 500 Calories</option>
   </select>
+  <hr>
   <ul>
     <li *ngFor="let currentMeal of childMealList | filterCalories:filterByCalories">{{currentMeal.name}} <button (click)="editButtonHasBeenClicked(currentMeal)">Edit Meal</button></li>
   </ul>

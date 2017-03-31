@@ -16,6 +16,13 @@ export class filterCaloriesPipe implements PipeTransform {
         }
       }
       return output;
+    } else if(desiredCalories === "over500") {
+      for(var i = 0; i < input.length; i++) {
+        if (input[i].calories > 500) {
+        output.push(input[i]);
+      }
+    }
+    return output;
     } else {
       return input;
     }
