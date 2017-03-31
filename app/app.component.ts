@@ -7,21 +7,9 @@ import { Meal } from './meal.model';
   <div class="container">
   <h1>Meal Tracker for {{month}}/{{day}}/{{year}}</h1>
   <h3>{{currentFocus}}</h3>
-  <meal-list></meal-list>
+  <meal-list [childMealList]="masterMealList" (clickSender)="editMeal($event)"></meal-list>
   <hr>
-  <div *ngIf="selectedMeal">
-     <h3>{{selectedMeal.name}}</h3>
-    <h3>Edit Meal</h3>
-    <label>Enter meal name:</label>
-    <input [(ngModel)]="selectedMeal.name">
-     <br>
-     <label>Enter meal details:</label>
-     <input [(ngModel)]="selectedMeal.details">
-     <br>
-     <label>Enter meal calories:</label>
-     <input [(ngModel)]="selectedMeal.calories">
-     <button (click)="finishedEditing()">Done</button>
-    </div>
+  <edit-meal [childSelectedMeal]="selectedMeal" (doneButtonClickedSender)="finishedEditing()"></edit-meal>
   </div>
   `
 })
@@ -32,8 +20,13 @@ export class AppComponent {
   month: number = this.currentTime.getMonth() + 1;
   day: number = this.currentTime.getDate();
   year: number = this.currentTime.getFullYear();
-
   selectedMeal = null;
+
+  masterMealList: Meal[] = [
+    new Meal("Mac and cheese", "only ate half of it", 400),
+    new Meal("Bagel and cream cheese", "worth it", 350),
+    new Meal("Soup", "ate two bowls", 600)
+  ];
 
   editMeal(clickedMeal) {
     this.selectedMeal = clickedMeal;
