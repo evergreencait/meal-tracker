@@ -7,8 +7,21 @@ import { Component } from '@angular/core';
   <h1>Meal Tracker for {{month}}/{{day}}/{{year}}</h1>
   <h3>{{currentFocus}}</h3>
   <ul>
-    <li *ngFor="let currentMeal of meals">{{currentMeal.name}}</li>
+    <li *ngFor="let currentMeal of meals">{{currentMeal.name}} <button (click)="editMeal()">Edit Meal</button></li>
   </ul>
+  <hr>
+  <div>
+     <h3>{{selectedMeal.name}}</h3>
+    <h3>Edit Meal</h3>
+    <label>Enter meal name:</label>
+    <input [(ngModel)]="selectedMeal.name">
+     <br>
+     <label>Enter meal details:</label>
+     <input [(ngModel)]="selectedMeal.details">
+     <br>
+     <label>Enter meal calories:</label>
+     <input [(ngModel)]="selectedMeal.calories">
+    </div>
   </div>
   `
 })
@@ -24,6 +37,12 @@ export class AppComponent {
     new Meal("Bagel and cream cheese", "worth it", 350),
     new Meal("Soup", "ate two bowls", 600)
   ];
+
+  selectedMeal: Meal = this.meals[0];
+
+  editMeal() {
+    alert("You just requested to edit a meal");
+  }
 }
 
 export class Meal {
