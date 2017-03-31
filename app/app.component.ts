@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Meal } from './meal.model';
 
 @Component({
   selector: 'app-root',
@@ -6,9 +7,7 @@ import { Component } from '@angular/core';
   <div class="container">
   <h1>Meal Tracker for {{month}}/{{day}}/{{year}}</h1>
   <h3>{{currentFocus}}</h3>
-  <ul>
-    <li *ngFor="let currentMeal of meals">{{currentMeal.name}} <button (click)="editMeal(currentMeal)">Edit Meal</button></li>
-  </ul>
+  <meal-list></meal-list>
   <hr>
   <div *ngIf="selectedMeal">
      <h3>{{selectedMeal.name}}</h3>
@@ -33,11 +32,6 @@ export class AppComponent {
   month: number = this.currentTime.getMonth() + 1;
   day: number = this.currentTime.getDate();
   year: number = this.currentTime.getFullYear();
-  meals: Meal[] = [
-    new Meal("Mac and cheese", "only ate half of it", 400),
-    new Meal("Bagel and cream cheese", "worth it", 350),
-    new Meal("Soup", "ate two bowls", 600)
-  ];
 
   selectedMeal = null;
 
@@ -48,8 +42,4 @@ export class AppComponent {
   finishedEditing() {
    this.selectedMeal = null;
  }
-}
-
-export class Meal {
-  constructor(public name: string, public details: string, public calories: number) { }
 }
