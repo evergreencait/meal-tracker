@@ -4,6 +4,11 @@ import { Meal } from './meal.model';
 @Component({
   selector: 'meal-list',
   template: `
+  <div class="container">
+    <div class="quote">
+      <p class="quotetext">"Life is a combination<p> <br><p class="quotetext2">of magic and pasta" -Federico Fellini</p>
+    </div>
+  </div>
   <label>Filter by Calories</label>
   <select (change)="onChange($event.target.value)">
     <option value="allMeals" selected="selected">All Meals</option>

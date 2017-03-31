@@ -7,8 +7,8 @@ import { Meal } from './meal.model';
   <div class="header">
   </div>
   <div class="container">
-  <h1><span class="title">Meal Tracker</span><br>{{month}}/{{day}}/{{year}}</h1>
-  <h3>{{currentFocus}}</h3>
+  <h1><span class="title">Meal Tracker</span><br><span class="title2">{{currentFocus}}</span></h1>
+  <h3>{{month}}/{{day}}/{{year}}</h3>
   <hr>
   <meal-list [childMealList]="masterMealList" (clickSender)="editMeal($event)"></meal-list>
   <hr>
@@ -28,7 +28,7 @@ export class AppComponent {
 
   masterMealList: Meal[] = [
     new Meal("Mac and cheese", "only ate half of it", 400),
-    new Meal("Bagel and cream cheese", "worth it", 350),
+    new Meal("Bagel", "worth it", 350),
     new Meal("Soup", "ate two bowls", 600)
   ];
 
